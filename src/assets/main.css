@@ -1,0 +1,116 @@
+
+@import './base.css';
+#app {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  font-weight: normal;
+}
+.wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 1480px;
+}
+a{
+  text-decoration: none;
+  color: var(--letter-color);
+  transition: 0.3s;
+  padding: 5px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+a:hover{
+  color: var(--scooter-700);
+}
+.btn{
+  margin-top: 1rem;
+  background-color: var(--scooter-700);
+  color: var(--scooter-100);
+  padding: .75rem;
+  border: none;
+  border-radius: 1rem;
+  transition: background .25s;
+  box-shadow: 3px 3px 5px  rgb(209, 209, 209);
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: var(--scooter-800);
+}
+
+.title span {
+  color: var(--scooter-800);
+  /* font-size: 2rem; */
+}
+.line{
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background-color: var(--scooter-900);
+}
+.line::after{
+  content: 'Iglesias filiales';
+  position: absolute;
+  background-color: var(--scooter-50);
+  padding: .25rem;
+  font-size: .75rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.banner-info{
+  padding: 2rem;
+  background-color: var(--scooter-200);
+  border-radius: 1rem;
+}
+
+.footer{
+  margin-top: 4rem;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.social-media{
+  padding: 2rem;
+  background-color: var(--scooter-900);
+  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: -100px;
+}
+.content-footer{
+  background: var(--scooter-200);
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  min-height: 200px;
+}
+
+.headband{
+  background: var(--scooter-800);
+  color: white;
+  padding: .25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 10px;
+}
+
+.bi-facebook, .bi-instagram, .bi-youtube{
+  color: white;
+  font-size: 2rem;
+}
+
+@media (max-width: 800px) {
+ .social-media{
+  flex-direction: column;
+  align-items: center;
+ }
+ .headband{
+  display: none;
+ }
+}
