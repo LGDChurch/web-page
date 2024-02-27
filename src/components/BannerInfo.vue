@@ -48,7 +48,6 @@
         grid-template-columns: 1fr 1fr;
         margin-top: 1rem;
         grid-gap: 1rem;
-        padding: 1rem;         
    }
    @media (max-width: 800px){
     .content-contact{
@@ -72,6 +71,8 @@
         background-color: #1e5b6c;
         color: white;
         border-radius: 1rem;
+        min-width: 100px;
+        word-break: break-all;
    }
    .contact .bi{
         font-size: 2.5rem;
