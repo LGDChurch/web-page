@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="social-cont" >
-                    <a href="" target="_blank">
+                    <a href="https://www.tiktok.com/@lagraciadedios23" target="_blank">
                         <i class="bi bi-tiktok"></i>
                     </a>
                     <p class="social">@lagraciadedios23</p>

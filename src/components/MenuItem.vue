@@ -5,10 +5,10 @@ import LogoItem from './LogoItem.vue'
 const currentPositionMenu = ref('')
 onMounted( ()=> {
     
-    document.addEventListener('scroll', (event) =>{
+    document.addEventListener('scroll', () =>{
         let scrollTop = document.documentElement.scrollTop;
 
-        (scrollTop === 0 ) ?  currentPositionMenu.value = false :  currentPositionMenu.value = true   
+        currentPositionMenu.value = scrollTop !== 0;
     })
 })
 
@@ -17,16 +17,28 @@ onMounted( ()=> {
 <template>
     <div class="headband">
         <div class="content-social-headband">
-            <i class="bi bi-facebook"></i>
-            Iglesia La Gracia De Dios 
+            <a href="https://www.facebook.com/profile.php?id=100064372282296&locale=es_LA" target="_blank">
+                <i class="bi bi-facebook"></i>
+                Iglesia La Gracia De Dios
+            </a>
         </div>
         <div class="content-social-headband">
-            <i class="bi bi-instagram"></i>
-            lgdtelevision
+            <a href="https://www.instagram.com/lgdtelevision/" target="_blank">
+                <i class="bi bi-instagram"></i>
+                lagraciad
+            </a>
         </div>
         <div class="content-social-headband">
-            <i class="bi bi-youtube"></i>
-            LGD TELEVISION
+            <a href="https://www.youtube.com/@lgdtelevision8153" target="_blank">
+                <i class="bi bi-youtube"></i>
+                @lgdtelevision8153
+            </a>
+        </div>
+        <div class="content-social-headband">
+            <a href="https://www.tiktok.com/@lagraciadedios23" target="_blank">
+                <i class="bi bi-tiktok"></i>
+                @lagraciadedios23
+            </a>
         </div>
     </div>
     <header :class="{  'bg' : currentPositionMenu }" id="header" >
@@ -46,13 +58,16 @@ onMounted( ()=> {
 </template>
 
 <style lang="css" scoped>
-    .bi-facebook, .bi-instagram, .bi-youtube{   
+    .bi-facebook, .bi-instagram, .bi-youtube, .bi-tiktok{
         font-size: .5rem;
     }
     .content-social-headband{
         display: flex;
         gap: .5rem;
         align-items: center;
+    }
+    .content-social-headband a{
+        color: white;
     }
     header{
         position: sticky;
