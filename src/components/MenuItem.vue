@@ -68,6 +68,7 @@ onMounted( ()=> {
     }
     .content-social-headband a{
         color: white;
+        font-weight: 300;
     }
     header{
         position: sticky;

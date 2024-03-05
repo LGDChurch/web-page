@@ -3,18 +3,19 @@
         <div>
             <div class="menu">
                 <ul class="ul-menu">
-                    <li @click="funMenu" :class="{ active : isActiveLgd }" >Ubícanos</li>
-                    <li @click="funMenu" :class="{  active : isActiveService } ">Contáctanos</li>
+                    <li @click="funMenu('location')" :class="{ active : isActiveLgd }">Ubícanos</li>
+                    <li @click="funMenu('contact')" :class="{  active : isActiveContact }">Contáctanos</li>
+                    <li @click="funMenu('service')" :class="{  active : isActiveServiceDo } ">Servicios</li>
                 </ul>
             </div>
             <div v-if="isActiveLgd" class="content-menu-selected">
                 <div class=" section-map">
                     <div class="about-map" id="map">
-                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62855.56701283605!2d-69.43395986588139!3d10.060279354288047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e876371e8a114f3%3A0x18d808a5764e5850!2sIGLESIA%20EVANGELICA%20LA%20GRACIA%20DE%20DIOS!5e0!3m2!1ses!2sve!4v1708652689889!5m2!1ses!2sve" scrolling="none" gesture-zoom="none" height="250" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62855.56701283605!2d-69.43395986588139!3d10.060279354288047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e876371e8a114f3%3A0x18d808a5764e5850!2sIGLESIA%20EVANGELICA%20LA%20GRACIA%20DE%20DIOS!5e0!3m2!1ses!2sve!4v1708652689889!5m2!1ses!2sve" scrolling="none" gesture-zoom="none" height="350" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
-            <div v-else class="content-menu-selected">
+            <div v-else-if="isActiveContact" class="content-menu-selected">
                 <div class="content-contact">
                     <div class="contact">
                         <i class="bi bi-google"></i>
@@ -26,18 +27,45 @@
                     </div>
                 </div>
             </div>
+            <div v-else>
+                <div class="content-contact">
+                    <div class="contact">
+                        
+                        <span>Servicios Dominicales: <br> Domingos 9:00am a 12:00pm</span>
+                    </div>
+                    <div class="contact">
+                        
+                        <span>Servicios de oración: <br> Miércoles 7:00pm a 9:00pm</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
     import { ref } from 'vue';
-    let isActiveLgd = ref(true)
-    let isActiveService = ref(false)
 
-    const funMenu = () => { 
-        isActiveLgd.value = !isActiveLgd.value 
-        isActiveService.value = !isActiveService.value 
+    let isActiveLgd = ref(true)
+    let isActiveContact = ref(false)
+    let isActiveServiceDo = ref(false)
+
+    const funMenu = (menuClick) => { 
+        if(menuClick === 'location'){
+            isActiveLgd.value = true
+            isActiveContact.value = false
+            isActiveServiceDo.value = false
+        }
+        if(menuClick === 'contact'){
+            isActiveLgd.value = false
+            isActiveContact.value = true
+            isActiveServiceDo.value = false
+        }
+        if(menuClick === 'service'){
+            isActiveLgd.value = false
+            isActiveContact.value = false
+            isActiveServiceDo.value = true
+        }
     }
 </script>
 
@@ -60,18 +88,19 @@
         justify-content: center;
    }
 
- 
    .contact{
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        justify-content: center;
         gap: 1rem;
         padding: 1rem;
         background-color: #1e5b6c;
         color: white;
         border-radius: 1rem;
         min-width: 100px;
+        min-height: 200px;
         word-break: break-all;
    }
    .contact .bi{
@@ -81,10 +110,18 @@
    .ul-menu{
         display: flex;
         justify-content: center;
+        align-items: center;
         list-style-type: none;
         gap: 2rem;
         position: relative;
    }
+    @media (max-width: 768px) {
+        .ul-menu{
+            /* flex-direction: column; */
+            font-size: 10px;
+            gap: 0;
+        } 
+    }
    .ul-menu::after{
         content: '';
         position: absolute;
@@ -95,7 +132,7 @@
         border-radius: 1rem;
    }
    .ul-menu li{
-        padding: 10px 15px;
+        padding: .25rem;
         cursor: pointer;
    }
    .ul-menu li.active{
@@ -137,5 +174,6 @@
   .map{
     border-radius: 1rem;
     width: 100%;
+    border: none;
   }
 </style>
