@@ -23,7 +23,7 @@
                     </div>
                     <div class="contact">
                         <i class="bi bi-telephone-fill"></i>
-                        <span>Telefono: <br>0251-4162770</span>
+                        <span>Telefono: <br>+58 424-5291151</span>
                     </div>
                 </div>
             </div>

@@ -50,7 +50,7 @@ onMounted( ()=> {
                 </li>
                 <li class="nav-li">
                     <div class="point"></div>
-                    <a href="">Sala en vivo</a>
+                    <a href="https://live.ministerioslgd.org">Sala en vivo</a>
                 </li>
             </ul>       
         </nav>
